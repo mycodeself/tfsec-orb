@@ -1,5 +1,5 @@
 description: >
-  Example of tfsec installation
+  Example of tfsec installation and usage
 usage:
   version: 2.1
   orbs:
@@ -8,3 +8,7 @@ usage:
     use-my-orb:
       jobs:
         - tfsec/install
+        - tfsec/scan
+            directory: path/to/tfcode
+            exclude-checks: GEN001,GCP001,GCP002
+            tfvars-file: path/to/terraform.tfvars
