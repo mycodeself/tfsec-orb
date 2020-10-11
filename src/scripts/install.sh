@@ -23,6 +23,7 @@ function main()
     install "$(get_download_url)"
 }
 
-if [[ "${BASH_SOURCE[0]}" == "${0}" ]]; then
-  main
+TEST_ENV="bats-core"
+if [ "${0#*$TEST_ENV}" == "$0" ]; then
+    main
 fi
