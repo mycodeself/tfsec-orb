@@ -1,8 +1,6 @@
 # tfsec-orb
 
-<!---
 [![CircleCI Build Status](https://circleci.com/gh/mycodeself/tfsec-orb.svg?style=shield "CircleCI Build Status")](https://circleci.com/gh/mycodeself/tfsec-orb) [![CircleCI Orb Version](https://img.shields.io/badge/endpoint.svg?url=https://badges.circleci.io/orb/<namespace>/<orb-name>)](https://circleci.com/orbs/registry/orb/<namespace>/<orb-name>) [![GitHub License](https://img.shields.io/badge/license-MIT-lightgrey.svg)](https://raw.githubusercontent.com/mycodeself/tfsec-orb/master/LICENSE) [![CircleCI Community](https://img.shields.io/badge/community-CircleCI%20Discuss-343434.svg)](https://discuss.circleci.com/c/ecosystem/orbs)
---->
 
 Orb to run tfsec easy in your CircleCI pipeline
 
