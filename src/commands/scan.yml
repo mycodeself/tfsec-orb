@@ -1,5 +1,5 @@
 description: >
-  Installs tfsec tool
+  Run tfsec scan
 parameters:
   directory:
     type: string
@@ -20,8 +20,8 @@ steps:
         $exclude-checks=""
         $tfvars-file=""
         if [ -n "<<parameters.exclude-checks>>" ]; then
-            $exclude-checks="-e <<parameters.exclude-checks>>"
-        fi    
+                    $exclude-checks="-e <<parameters.exclude-checks>>"
+        fi
         if [ -n "<<parameters.tfvars-file>>" ]; then
             $tfvars-file="--tfvars-file <<parameters.tfvars-file>>"
         fi

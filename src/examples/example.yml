@@ -8,7 +8,7 @@ usage:
     use-my-orb:
       jobs:
         - tfsec/install
-        - tfsec/scan
+        - tfsec/scan:
             directory: path/to/tfcode
             exclude-checks: GEN001,GCP001,GCP002
             tfvars-file: path/to/terraform.tfvars
