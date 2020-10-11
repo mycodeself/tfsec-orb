@@ -1,0 +1,28 @@
+description: >
+  Installs tfsec tool
+parameters:
+  directory:
+    type: string
+    default: "."
+    description: Directory with tf code to recursively scan. Default to current directory
+  exclude-checks:
+    type: string
+    default: ""
+    description: Comma separated list of checks to exclude in the scan
+  tfvars-file:
+    type: string
+    default: ""
+    description: Path to tfvars file to include values in the scan
+steps:
+  - run:
+      name: Run tfsec scan
+      command: |
+        $exclude-checks=""
+        $tfvars-file=""
+        if [ -n "<<parameters.exclude-checks>>" ]; then
+            $exclude-checks="-e <<parameters.exclude-checks>>"
+        fi    
+        if [ -n "<<parameters.tfvars-file>>" ]; then
+            $tfvars-file="--tfvars-file <<parameters.tfvars-file>>"
+        fi
+        tfsec <<parameters.directory>> $exclude-checks $tfvars-file

@@ -1,0 +1,13 @@
+description: >
+  Installs tfsec tool
+parameters:
+  version:
+    type: string
+    default: "latest"
+    description: The tfsec version to install (https://github.com/tfsec/tfsec/releases)
+steps:
+  - run:
+      environment:
+        TFSEC_VERSION: <<parameters.version>>
+      name: Install tfsec
+      command: <<include(scripts/install.sh)>>
