@@ -1,5 +1,5 @@
 description: >
-  Run tfsec scan
+  "Run tfsec scan. Directory: <<parameters.directory>>"
 parameters:
   directory:
     type: string
