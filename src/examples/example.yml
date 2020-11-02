@@ -5,7 +5,7 @@ usage:
   orbs:
     tfsec: mycodeself/tfsec-orb@1.0.0
   workflows:
-    analyze-tf-code: 
+    analyze-tf-code:
       jobs:
         - tfsec/install
         - tfsec/scan:
