@@ -1,5 +1,5 @@
 description: >
-  "Run tfsec scan. Directory: <<parameters.directory>>"
+  Run tfsec scan
 parameters:
   directory:
     type: string
@@ -15,7 +15,7 @@ parameters:
     description: Path to tfvars file to include values in the scan
 steps:
   - run:
-      name: Run tfsec scan
+      name: "Run tfsec scan in directory: <<parameters.directory>>"
       command: |
         exclude_checks=""
         tfvars_file=""
