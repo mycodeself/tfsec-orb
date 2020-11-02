@@ -17,12 +17,12 @@ steps:
   - run:
       name: Run tfsec scan
       command: |
-        $exclude-checks=""
-        $tfvars-file=""
+        exclude_checks=""
+        tfvars_file=""
         if [ -n "<<parameters.exclude-checks>>" ]; then
-                    $exclude-checks="-e <<parameters.exclude-checks>>"
+          exclude_checks="-e <<parameters.exclude-checks>>"
         fi
         if [ -n "<<parameters.tfvars-file>>" ]; then
-            $tfvars-file="--tfvars-file <<parameters.tfvars-file>>"
+          tfvars_file="--tfvars-file <<parameters.tfvars-file>>"
         fi
-        tfsec <<parameters.directory>> $exclude-checks $tfvars-file
+        tfsec <<parameters.directory>> $exclude_checks $tfvars_file
