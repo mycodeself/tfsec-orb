@@ -1,11 +1,11 @@
 description: >
   tfsec container executor
 docker:
-  - image: "liamg/tfsec:<<parameters.tag>>"
+  - image: "tfsec/tfsec:<<parameters.tag>>"
 parameters:
   tag:
     default: latest
     description: >
-      Pick a specific liamg/tfsec image tag:
-      https://hub.docker.com/r/liamg/tfsec/tags
+      Pick a specific tfsec/tfsec image tag:
+      https://hub.docker.com/r/tfsec/tfsec/tags
     type: string

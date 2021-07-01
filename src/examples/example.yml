@@ -2,13 +2,21 @@ description: >
   Example of tfsec installation and usage
 usage:
   version: 2.1
+
   orbs:
-    tfsec: mycodeself/tfsec-orb@1.0.0
+    tfsec: mycodeself/tfsec-orb@1.0.1
+
+  jobs:
+    scan-example:
+      executor: tfsec/default
+      steps:
+        - checkout
+        - tfsec/scan:
+          directory: path/to/tfcode
+          exclude-checks: GEN001,GCP001,GCP002
+          tfvars-file: path/to/terraform.tfvars
+
   workflows:
     analyze-tf-code:
       jobs:
-        - tfsec/install
-        - tfsec/scan:
-            directory: path/to/tfcode
-            exclude-checks: GEN001,GCP001,GCP002
-            tfvars-file: path/to/terraform.tfvars
+        - scan-example
