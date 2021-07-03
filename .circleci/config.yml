@@ -27,13 +27,18 @@ jobs:
     docker:
       - image: cimg/base:stable
     steps:
+      - checkout
       - tfsec/install
-      - tfsec/scan
+      - tfsec/scan:
+          directory: examples
 
   integration-test-2:
     executor: tfsec/default
     steps:
-      - tfsec/scan
+      - run: apk update && apk add git openssh
+      - checkout
+      - tfsec/scan:
+          directory: examples
 
 workflows:
   # Prior to producing a development orb (which requires credentials) basic validation, linting, and even unit testing can be performed.
