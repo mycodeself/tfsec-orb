@@ -1,7 +1,6 @@
 version: 2.1
 
 orbs:
-  # Replace this with your own!
   tfsec: mycodeself/tfsec@<<pipeline.parameters.dev-orb-version>>
   orb-tools: circleci/orb-tools@10.0
   bats: circleci/bats@1.0
@@ -30,6 +29,16 @@ jobs:
     steps:
       - checkout
       - tfsec/install
+      - tfsec/scan:
+          directory: terraform
+
+  integration-test-2:
+    executor: tfsec/default
+    steps:
+      - run: apk update && apk add git openssh
+      - checkout
+      - tfsec/scan:
+          directory: terraform
 
 workflows:
   # Prior to producing a development orb (which requires credentials) basic validation, linting, and even unit testing can be performed.
@@ -77,6 +86,7 @@ workflows:
     jobs:
       # Run any integration tests defined within the `jobs` key.
       - integration-test-1
+      - integration-test-2
       # Publish a semver version of the orb. relies on
       # the commit subject containing the text "[semver:patch|minor|major|skip]"
       # as that will determine whether a patch, minor or major
@@ -91,6 +101,7 @@ workflows:
           publish-version-tag: false
           requires:
             - integration-test-1
+            - integration-test-2
           filters:
             branches:
               only: main
