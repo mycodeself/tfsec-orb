@@ -30,7 +30,7 @@ jobs:
       - checkout
       - tfsec/install
       - tfsec/scan:
-          directory: examples
+          directory: terraform
 
   integration-test-2:
     executor: tfsec/default
@@ -38,7 +38,7 @@ jobs:
       - run: apk update && apk add git openssh
       - checkout
       - tfsec/scan:
-          directory: examples
+          directory: terraform
 
 workflows:
   # Prior to producing a development orb (which requires credentials) basic validation, linting, and even unit testing can be performed.
