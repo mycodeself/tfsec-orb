@@ -12,9 +12,9 @@ usage:
       steps:
         - checkout
         - tfsec/scan:
-          directory: path/to/tfcode
-          exclude-checks: GEN001,GCP001,GCP002
-          tfvars-file: path/to/terraform.tfvars
+            directory: path/to/tfcode
+            exclude-checks: GEN001,GCP001,GCP002
+            tfvars-file: path/to/terraform.tfvars
 
   workflows:
     analyze-tf-code:
