@@ -2,9 +2,14 @@ terraform {
   required_version = ">= 0.12.26"
 }
 
+variable "logging_bucket" {
+  type = string
+}
+
 provider "aws" {
   region = "eu-west-1"
 }
+
 
 resource "aws_s3_bucket" "this" {
   bucket = "tfsec-example-bucket"
@@ -19,5 +24,10 @@ resource "aws_s3_bucket" "this" {
         sse_algorithm = "AES256"
       }
     }
+  }
+
+  logging {
+    target_bucket = var.logging_bucket
+    target_prefix = "log/"
   }
 }
