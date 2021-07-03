@@ -2,6 +2,7 @@ description: >
   tfsec container executor
 docker:
   - image: "tfsec/tfsec-ci:<<parameters.tag>>"
+    user: root
 parameters:
   tag:
     default: latest
