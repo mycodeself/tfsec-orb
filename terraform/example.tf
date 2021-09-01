@@ -15,7 +15,7 @@ resource "aws_s3_bucket" "this" {
   bucket = "tfsec-example-bucket"
 
   versioning {
-    enabled = true
+    enabled = false
   }
 
   server_side_encryption_configuration {
