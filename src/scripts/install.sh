@@ -1,9 +1,9 @@
 function get_download_url()
 {
     if [ -z "$TFSEC_VERSION" ] || [ "$TFSEC_VERSION" = "latest" ]; then
-        curl -s https://api.github.com/repos/tfsec/tfsec/releases/latest | grep "tfsec-linux-amd64\"$" | grep browser_download_url | cut -d '"' -f 4
+        curl -s https://api.github.com/repos/aquasecurity/tfsec/releases/latest | grep "tfsec-linux-amd64\"$" | grep browser_download_url | cut -d '"' -f 4
     else
-        echo "https://github.com/tfsec/tfsec/releases/download/${TFSEC_VERSION}/tfsec-linux-amd64"
+        echo "https://github.com/aquasecurity/tfsec/releases/download/${TFSEC_VERSION}/tfsec-linux-amd64"
     fi
 }
 
