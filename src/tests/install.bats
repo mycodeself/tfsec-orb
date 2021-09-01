@@ -9,10 +9,10 @@ setup() {
     export -f install
 }
 
-@test '1: Get download url binary v0.30.1' {
-    export TFSEC_VERSION="v0.30.1"
+@test '1: Get download url binary v0.58.6' {
+    export TFSEC_VERSION="v0.58.6"
     result=$(get_download_url)
-    [ "$result" == "https://github.com/tfsec/tfsec/releases/download/v0.30.1/tfsec-linux-amd64" ]
+    [ "$result" == "https://github.com/aquasecurity/tfsec/releases/download/v0.58.6/tfsec-linux-amd64" ]
 }
 
 @test '2: Get download url latest version' {
