@@ -31,3 +31,12 @@ resource "aws_s3_bucket" "this" {
     target_prefix = "log/"
   }
 }
+
+resource "aws_s3_bucket_public_access_block" "this" {
+  bucket = aws_s3_bucket.this.id
+
+  restrict_public_buckets = true
+  ignore_public_acls = true
+  block_public_policy = true
+  block_public_acls = true
+}
